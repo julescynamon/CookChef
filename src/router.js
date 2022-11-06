@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, redirect } from 'react-router-dom';
 import App from './App';
 
 const Homepage = lazy(() => {
@@ -8,6 +8,14 @@ const Homepage = lazy(() => {
 
 const Admin = lazy(() => {
     return import('./pages/Admin/Admin');
+});
+
+const AdminRecipes = lazy(() => {
+    return import('./pages/Admin/pages/AdminRecipes');
+});
+
+const AdminUsers = lazy(() => {
+    return import('./pages/Admin/pages/AdminUsers');
 });
 
 export const router = createBrowserRouter([
@@ -22,6 +30,20 @@ export const router = createBrowserRouter([
             {
                 path: 'admin',
                 element: <Admin />,
+                children: [
+                    {
+                        path: 'recipes',
+                        element: <AdminRecipes />,
+                    },
+                    {
+                        path: 'users',
+                        element: <AdminUsers />,
+                    },
+                    {
+                        index: true,
+                        loader: async () => redirect('recipes'),
+                    },
+                ],
             },
         ],
     },

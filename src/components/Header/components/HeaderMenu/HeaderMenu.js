@@ -5,7 +5,7 @@ function HeaderMenu() {
     return (
         <ul className={`${styles.MenuContainer} card p-20`}>
             <li>
-                <NavLink to="admin">Ajouter une recette</NavLink>
+                <NavLink to="admin">Admin</NavLink>
             </li>
             <li>
                 <NavLink>Wishlist</NavLink>
