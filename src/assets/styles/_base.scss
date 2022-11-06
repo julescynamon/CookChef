@@ -32,6 +32,27 @@ input {
   font-family: var(--font-family);
 }
 
+::-webkit-input-placeholder {
+  font-size: var(--font-family);
+}
+
+::-moz-placeholder {
+  font-size: var(--font-family);
+}
+
+:-ms-input-placeholder {
+  font-size: var(--font-family);
+}
+
+::-ms-input-placeholder {
+  font-size: var(--font-family);
+}
+
 ::placeholder {
   font-size: var(--font-family);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
 }
