@@ -1,0 +1,29 @@
+.list {
+    flex: 0 0 200px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-nav);
+    border: var(--border);
+
+    a {
+        display: block;
+        padding: 10px 20px;
+        color: var(--text-color);
+        text-decoration: none;
+        border-bottom: var(--border);
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: var(--primary);
+            border-radius: var(--border-radius);
+        }
+    }
+}
+
+.listLinkActive {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: color 0.2s background-color 0.2s ease-in-out;
+}
