@@ -11,7 +11,10 @@ function HeaderMenu() {
                 <NavLink>Wishlist</NavLink>
             </li>
             <li>
-                <NavLink>Connexion</NavLink>
+                <NavLink to="signup">Inscription</NavLink>
+            </li>
+            <li>
+                <NavLink to="login">Connexion</NavLink>
             </li>
         </ul>
     );

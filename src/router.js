@@ -7,6 +7,14 @@ const Homepage = lazy(() => {
     return import('./pages/Homepage/Homepage');
 });
 
+const Signup = lazy(() => {
+    return import('./pages/Homepage/pages/Signup/Signup');
+});
+
+const Login = lazy(() => {
+    return import('./pages/Homepage/pages/Login/Login');
+});
+
 const Admin = lazy(() => {
     return import('./pages/Admin/Admin');
 });
@@ -77,6 +85,14 @@ export const router = createBrowserRouter([
                         loader: async () => redirect('recipes'),
                     },
                 ],
+            },
+            {
+                path: 'signup',
+                element: <Signup />,
+            },
+            {
+                path: 'login',
+                element: <Login />,
             },
         ],
     },

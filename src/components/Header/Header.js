@@ -26,7 +26,12 @@ function Header() {
                         <span>Wishlist</span>
                     </button>
                 </NavLink>
-                <NavLink>
+                <NavLink to="signup">
+                    <button className="btn btn-primary mr-15">
+                        Inscription
+                    </button>
+                </NavLink>
+                <NavLink to="login">
                     <button className="btn btn-primary">connexion</button>
                 </NavLink>
             </ul>
