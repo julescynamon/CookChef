@@ -1,16 +1,25 @@
-const router = require('express').Router();
 const UserModel = require('../../database/models/user.model');
+const bcrypt = require('bcrypt');
 
-router.post('/', (req, res) => {
-    const body = req.body;
-    const newUser = new UserModel(body);
+const router = require('express').Router();
+
+router.post('/', async (req, res) => {
+    const { name, email, password } = req.body;
+    const newUser = new UserModel({
+        name,
+        email,
+        password: await bcrypt.hash(password, 8),
+    });
     newUser.save((err, user) => {
         if (err) {
-            return res
-                .status(400)
-                .json("erreur lors de la création de l'utilisateur");
+            console.log(err);
+            if (err.code === 11000) {
+                res.status(400).json('Email déjà utilisé');
+            } else {
+                res.status(400).json('Oops une erreur est survenue');
+            }
         } else {
-            return res.status(200).json(user);
+            res.json(user);
         }
     });
 });

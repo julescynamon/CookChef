@@ -34,7 +34,7 @@ export default function Signup() {
         handleSubmit,
         register,
         formState: { errors, isSubmitting },
-        setErros,
+        setError,
         clearErrors,
     } = useForm({
         initialValues,
@@ -49,7 +49,7 @@ export default function Signup() {
             console.log(user);
             navigate('/login');
         } catch (message) {
-            setErros('generic', { type: 'generic', message });
+            setError('generic', { type: 'generic', message });
         }
     });
 

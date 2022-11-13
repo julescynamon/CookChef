@@ -14,7 +14,7 @@ export default function Login() {
                 </div>
                 <div className="d-flex flex-column mb-20">
                     <label>Mot de passe</label>
-                    <input type="text" />
+                    <input type="password" />
                 </div>
 
                 <div>
