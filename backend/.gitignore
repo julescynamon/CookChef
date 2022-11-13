@@ -1,1 +1,4 @@
 /node_modules
+keys/index.js
+keys/jwtRS256.key
+keys/jwtRS256.key.pub

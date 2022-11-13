@@ -98,7 +98,7 @@ export default function Signup() {
                 )}
                 <div>
                     <button disabled={isSubmitting} className="btn btn-primary">
-                        Sauvegarder
+                        Inscription
                     </button>
                 </div>
             </form>
