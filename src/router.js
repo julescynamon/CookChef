@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { createBrowserRouter, redirect } from 'react-router-dom';
 import App from './App';
 import { getRecipe } from './apis/recipe';
+import { rootLoader } from './loaders/rootLoaders';
 
 const Homepage = lazy(() => {
     return import('./pages/Homepage/Homepage');
@@ -39,10 +40,15 @@ const AdminRecipesForm = lazy(() => {
     );
 });
 
+const Profile = lazy(() => {
+    return import('./pages/Homepage/pages/Profile/Profile');
+});
+
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
+        loader: rootLoader,
         children: [
             {
                 index: true,
@@ -93,6 +99,10 @@ export const router = createBrowserRouter([
             {
                 path: 'login',
                 element: <Login />,
+            },
+            {
+                path: 'profile',
+                element: <Profile />,
             },
         ],
     },

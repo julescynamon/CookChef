@@ -2,7 +2,7 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const UserModel = require('../../database/models/user.model');
-const { key } = require('../../keys');
+const { key, keyPub } = require('../../keys');
 
 router.post('/', async (req, res) => {
     const { email, password } = req.body;
@@ -25,6 +25,27 @@ router.post('/', async (req, res) => {
         }
     } catch (error) {
         return res.status(400).json('Invalid email or password');
+    }
+});
+
+router.get('/current', async (req, res) => {
+    const { token } = req.cookies;
+    if (token) {
+        try {
+            const decodedToken = jwt.verify(token, keyPub);
+            const currentUser = await UserModel.findById(decodedToken.sub)
+                .select('-password -__v')
+                .exec();
+            if (currentUser) {
+                res.json(currentUser);
+            } else {
+                res.json(null);
+            }
+        } catch (err) {
+            res.json(null);
+        }
+    } else {
+        res.json(null);
     }
 });
 
